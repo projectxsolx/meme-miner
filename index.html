@@ -1,142 +1,159 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meme Miner Deluxe - Mine MemeBux!</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: url('https://i.imgur.com/7Y8X8vG.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-align: center;
-            overflow: hidden;
-        }
-        #game-container {
-            position: relative;
-            width: 800px;
-            height: 600px;
-            margin: 20px auto;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-        }
-        h1 {
-            font-size: 36px;
-            text-shadow: 2px 2px 4px #ff4500;
-        }
-        #mbx-count {
-            font-size: 24px;
-            color: #ffd700;
-        }
-        #drill {
-            width: 150px;
-            height: 150px;
-            cursor: pointer;
-            transition: transform 0.1s;
-        }
-        #drill:hover {
-            transform: scale(1.1);
-        }
-        #drill:active {
-            transform: scale(0.95);
-        }
-        #event-message {
-            font-size: 20px;
-            color: #ff00ff;
-            text-shadow: 1px 1px 2px black;
-            margin-top: 10px;
-        }
-        #progress-bar {
-            width: 300px;
-            height: 20px;
-            background: #333;
-            border-radius: 10px;
-            margin: 20px auto;
-            overflow: hidden;
-        }
-        #progress {
-            height: 100%;
-            background: linear-gradient(90deg, #32cd32, #ffd700);
-            width: 0%;
-            transition: width 0.5s;
-        }
-        .meme-icon {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            animation: float 3s infinite ease-in-out;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Courier; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Courier; -webkit-text-stroke: #000000; min-height: 16.0px}
+    span.s1 {font-kerning: none}
+  </style>
 </head>
 <body>
-    <div id="game-container">
-        <h1>Meme Miner Deluxe</h1>
-        <p>MemeBux (MBX) Mined: <span id="mbx-count">0</span></p>
-        <img id="drill" src="https://i.imgur.com/5Z5Z5Z5.png" alt="Mining Drill" onclick="mineMBX()">
-        <div id="progress-bar"><div id="progress"></div></div>
-        <p id="event-message"></p>
-    </div>
-
-    <script>
-        let mbxCount = 0;
-        let multiplier = 1;
-        const gameContainer = document.getElementById("game-container");
-
-        function mineMBX() {
-            mbxCount += 1 * multiplier;
-            document.getElementById("mbx-count").innerText = mbxCount;
-            updateProgress();
-
-            if (Math.random() < 0.15) { // 15% chance for event
-                triggerMemeEvent();
-            }
-
-            // Play sound (optional, muted by default)
-            if (typeof Audio !== "undefined") {
-                const clickSound = new Audio("https://www.soundjay.com/buttons/beep-01a.mp3");
-                clickSound.volume = 0.2;
-                clickSound.play();
-            }
-        }
-
-        function updateProgress() {
-            const progress = Math.min((mbxCount % 100) / 100 * 100, 100);
-            document.getElementById("progress").style.width = progress + "%";
-        }
-
-        function triggerMemeEvent() {
-            const events = [
-                { text: "Doge Rocket Boost! 2x MBX!", multi: 2, duration: 5000, img: "https://i.imgur.com/3Z3Z3Z3.png" },
-                { text: "Stonks Surge! 3x MBX!", multi: 3, duration: 4000, img: "https://i.imgur.com/4Z4Z4Z4.png" },
-                { text: "Moon Lambo! 5x MBX!", multi: 5, duration: 3000, img: "https://i.imgur.com/5Z5Z5Z5.png" }
-            ];
-            const event = events[Math.floor(Math.random() * events.length)];
-            document.getElementById("event-message").innerText = event.text;
-            multiplier = event.multi;
-
-            // Spawn meme icon
-            const icon = document.createElement("img");
-            icon.src = event.img;
-            icon.className = "meme-icon";
-            icon.style.left = Math.random() * (gameContainer.offsetWidth - 80) + "px";
-            icon.style.top = Math.random() * (gameContainer.offsetHeight - 80) + "px";
-            gameContainer.appendChild(icon);
-
-            setTimeout(() => {
-                multiplier = 1;
-                document.getElementById("event-message").innerText = "";
-                gameContainer.removeChild(icon);
-            }, event.duration);
-        }
-    </script>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Meme Miner Deluxe - Mine MemeBux!&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Arial', sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: url('https://i.imgur.com/7Y8X8vG.jpg') no-repeat center center fixed;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-size: cover;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-align: center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#game-container {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: relative;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 800px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 600px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 20px auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: rgba(0, 0, 0, 0.7);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 15px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>h1 {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 36px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-shadow: 2px 2px 4px #ff4500;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#mbx-count {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 24px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #ffd700;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#drill {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 150px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 150px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: transform 0.1s;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#drill:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: scale(1.1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#drill:active {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: scale(0.95);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#event-message {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-size: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: #ff00ff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>text-shadow: 1px 1px 2px black;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#progress-bar {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 300px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: #333;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 20px auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>overflow: hidden;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#progress {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background: linear-gradient(90deg, #32cd32, #ffd700);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 0%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: width 0.5s;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.meme-icon {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>position: absolute;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 80px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 80px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>animation: float 3s infinite ease-in-out;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@keyframes float {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>0%, 100% { transform: translateY(0); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>50% { transform: translateY(-20px); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="game-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Meme Miner Deluxe&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;MemeBux (MBX) Mined: &lt;span id="mbx-count"&gt;0&lt;/span&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;img id="drill" src="https://i.imgur.com/5Z5Z5Z5.png" alt="Mining Drill" onclick="mineMBX()"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="progress-bar"&gt;&lt;div id="progress"&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p id="event-message"&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let mbxCount = 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let multiplier = 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const gameContainer = document.getElementById("game-container");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function mineMBX() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>mbxCount += 1 * multiplier;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById("mbx-count").innerText = mbxCount;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>updateProgress();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (Math.random() &lt; 0.15) { // 15% chance for event</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>triggerMemeEvent();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Play sound (optional, muted by default)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (typeof Audio !== "undefined") {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const clickSound = new Audio("https://www.soundjay.com/buttons/beep-01a.mp3");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>clickSound.volume = 0.2;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>clickSound.play();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function updateProgress() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const progress = Math.min((mbxCount % 100) / 100 * 100, 100);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById("progress").style.width = progress + "%";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function triggerMemeEvent() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const events = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{ text: "Doge Rocket Boost! 2x MBX!", multi: 2, duration: 5000, img: "https://i.imgur.com/3Z3Z3Z3.png" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{ text: "Stonks Surge! 3x MBX!", multi: 3, duration: 4000, img: "https://i.imgur.com/4Z4Z4Z4.png" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>{ text: "Moon Lambo! 5x MBX!", multi: 5, duration: 3000, img: "https://i.imgur.com/5Z5Z5Z5.png" }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const event = events[Math.floor(Math.random() * events.length)];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById("event-message").innerText = event.text;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>multiplier = event.multi;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Spawn meme icon</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const icon = document.createElement("img");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>icon.src = event.img;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>icon.className = "meme-icon";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>icon.style.left = Math.random() * (gameContainer.offsetWidth - 80) + "px";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>icon.style.top = Math.random() * (gameContainer.offsetHeight - 80) + "px";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gameContainer.appendChild(icon);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>multiplier = 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById("event-message").innerText = "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>gameContainer.removeChild(icon);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}, event.duration);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
 </body>
 </html>
