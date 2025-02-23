@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww30040\viewh18900\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26\fsmilli13333 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>Meme Miner - Mine MemeBux!</title>\
+    <style>\
+        body \{\
+            font-family: Arial, sans-serif;\
+            text-align: center;\
+            background-color: #f0f0f0;\
+            padding: 20px;\
+        \}\
+        h1 \{\
+            color: #ff4500;\
+        \}\
+        #game-container \{\
+            background-color: white;\
+            padding: 20px;\
+            border-radius: 10px;\
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);\
+            max-width: 600px;\
+            margin: 0 auto;\
+        \}\
+        #mine-button \{\
+            padding: 15px 30px;\
+            font-size: 18px;\
+            background-color: #32cd32;\
+            color: white;\
+            border: none;\
+            border-radius: 5px;\
+            cursor: pointer;\
+        \}\
+        #mine-button:hover \{\
+            background-color: #228b22;\
+        \}\
+        #event-message \{\
+            color: #ff00ff;\
+            font-weight: bold;\
+            margin-top: 10px;\
+        \}\
+    </style>\
+</head>\
+<body>\
+    <div id="game-container">\
+        <h1>Meme Miner</h1>\
+        <p>MemeBux (MBX) Mined: <span id="mbx-count">0</span></p>\
+        <button id="mine-button" onclick="mineMBX()">Mine MemeBux!</button>\
+        <p id="event-message"></p>\
+    </div>\
+\
+    <script>\
+        let mbxCount = 0;\
+        let multiplier = 1;\
+\
+        function mineMBX() \{\
+            mbxCount += 1 * multiplier;\
+            document.getElementById("mbx-count").innerText = mbxCount;\
+\
+            // Random meme event (10% chance per click)\
+            if (Math.random() < 0.1) \{\
+                triggerMemeEvent();\
+            \}\
+        \}\
+\
+        function triggerMemeEvent() \{\
+            const events = [\
+                "Doge appears! 2x MemeBux for 5 seconds!",\
+                "To the Moon! 3x MemeBux for 3 seconds!",\
+                "Stonks Rise! 5x MemeBux for 2 seconds!"\
+            ];\
+            const event = events[Math.floor(Math.random() * events.length)];\
+            document.getElementById("event-message").innerText = event;\
+\
+            // Apply multiplier based on event\
+            if (event.includes("2x")) multiplier = 2;\
+            else if (event.includes("3x")) multiplier = 3;\
+            else if (event.includes("5x")) multiplier = 5;\
+\
+            // Reset multiplier and message after timeout\
+            setTimeout(() => \{\
+                multiplier = 1;\
+                document.getElementById("event-message").innerText = "";\
+            \}, event.includes("5x") ? 2000 : event.includes("3x") ? 3000 : 5000);\
+        \}\
+    </script>\
+</body>\
+</html>\
+}
